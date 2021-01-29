@@ -8,10 +8,26 @@ public class ButtonMan : MonoBehaviour
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject settingsMenu;
     [SerializeField] private GameObject titleScreen;
+    [SerializeField] private GameObject mainMenu;
+    [SerializeField] private GameObject mainButtons;
 
     private void Update()
     {
         if (SceneManager.sceneCount == 1)
+        {
+            if (Input.GetKey(KeyCode.Escape))
+            {
+                Pause();
+            }
+        }
+        if (SceneManager.sceneCount == 2)
+        {
+            if (Input.GetKey(KeyCode.Escape))
+            {
+                Pause();
+            }
+        }
+        if (SceneManager.sceneCount == 3)
         {
             if (Input.GetKey(KeyCode.Escape))
             {
@@ -33,7 +49,10 @@ public class ButtonMan : MonoBehaviour
 
     public void GoToMainMenu()
     {
-        SceneManager.LoadScene("TitleScreen");
+        settingsMenu.SetActive(false);
+        mainMenu.SetActive(true);
+        mainButtons.SetActive(true);
+        titleScreen.SetActive(true);
     }
     public void StartLevel1()
     {
@@ -45,14 +64,23 @@ public class ButtonMan : MonoBehaviour
         {
             SceneManager.LoadScene("Level1"); //reload de scene
         }
-        //else if scenemanager.scenecount == 2
-        //loadscene level2
+        else if (SceneManager.sceneCount == 2)
+        {
+            SceneManager.LoadScene("Level2"); //reload de scene
+        }
+        else if (SceneManager.sceneCount == 3)
+        {
+            SceneManager.LoadScene("Level3"); //reload de scene
+        }
+
     }
 
     public void GoToSettingsMenu()
     {
         settingsMenu.SetActive(true);
         titleScreen.SetActive(false);
+        mainMenu.SetActive(false);
+        mainButtons.SetActive(false);
     }
 
     public void QuitGame()
