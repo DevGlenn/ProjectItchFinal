@@ -8,52 +8,64 @@ public class WalkingDragon : MonoBehaviour
 	[SerializeField] private float distance;
 	public GameObject player;
 	private bool enemyIsDead = false;
-
+	[SerializeField] private float timer = 3f;
 	[SerializeField] private Vector2 firstPos; //start positie
 	[SerializeField] private Vector2 secondPos; //eind positie
 	private Vector2 currentPos; //de positie waar het object zich nu bevindt
-
-
-	public bool MoveRight = true;
-	public Transform groundDetection;
 
 	public Animator animator;
 
     private void Start()
     {
-		transform.position = currentPos;
+		
 	}
     void Update()
 	{
-		transform.position = Vector3.Lerp(firstPos, secondPos, Mathf.PingPong(Time.time * enemySpeed, 1.0f));
-        if (firstPos == currentPos)
+		if(timer <= 0f)
         {
-            
-           // transform.localScale = Vector3.Scale(transform.localScale, new Vector3(-2, 2, 1));
+			Destroy(gameObject);
         }
-        else if (secondPos == currentPos)
+		if(enemyIsDead == true)
         {
-			//transform.localScale = Vector3.Scale(transform.localScale, new Vector3(-2, 2, 1));
+			timer -= Time.deltaTime;
+		}
+		currentPos = transform.position;
+		if (!enemyIsDead)
+		{
+			transform.position = Vector3.Lerp(firstPos, secondPos, Mathf.PingPong(Time.time * enemySpeed, 1.0f));
+			currentPos = transform.position;
 		}
 
+		if (currentPos.x <= firstPos.x + 1)
+        {
+			transform.eulerAngles = new Vector3(0, 0, 0);
+        }
+        else if (currentPos.x >= secondPos.x - 1)
+        {
+			transform.eulerAngles = new Vector3(0, 180, 0);
+		}
+        if (!enemyIsDead)
+        {
+			transform.position = Vector3.Lerp(firstPos, secondPos, Mathf.PingPong(Time.time * enemySpeed, 1.0f));
+		}
     }
 
     public void TakeHit()
 	{
 		Die();
 	}
-	private void Die()
+	public void Die()
 	{
-		//  Destroy(gameObject);
 		
-		if (gameObject.tag == "PogostickPlayer")
-		{
-			enemyIsDead = true;
+		//  Destroy(gameObject);
+
+
+		enemyIsDead = true;
 			Debug.Log(gameObject.tag);
 			
 			animator.SetBool("IsDead", true);		//speel de animatie af
 															    
-		}
+		
 		Debug.Log(gameObject.tag);
 	}
 

@@ -4,20 +4,24 @@ using UnityEngine;
 
 public class PogoDamageBehaviour : MonoBehaviour
 {
-	private void OnCollisionEnter2D(Collision2D collision) {
+	public void OnCollisionEnter2D(Collision2D collision) {
         WalkingDragon walkingDragon = collision.collider.GetComponent<WalkingDragon>();
         if (walkingDragon != null) 
         {
+            if(collision.collider.CompareTag("WalkingEnemy"))
+            {
+                walkingDragon.TakeHit();
+            }
             
-            walkingDragon.TakeHit();
         }
         
         FlyingDragon flyingDragon = collision.collider.GetComponent<FlyingDragon>();
         if (flyingDragon != null)
         {
-
-            flyingDragon.TakeHit();
+            if (collision.collider.CompareTag("FlyingEnemy"))
+            {
+                flyingDragon.TakeHit();
+            }
         }
-        
     }
 }

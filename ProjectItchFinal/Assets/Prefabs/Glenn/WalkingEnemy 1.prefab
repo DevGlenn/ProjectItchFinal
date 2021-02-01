@@ -13,8 +13,7 @@ GameObject:
   - component: {fileID: 3219468188470793343}
   - component: {fileID: 4519149127082042545}
   - component: {fileID: 371488771}
-  - component: {fileID: 763579637451487024}
-  - component: {fileID: 4979961349839504016}
+  - component: {fileID: 1652847188}
   m_Layer: 0
   m_Name: WalkingEnemy 1
   m_TagString: WalkingEnemy
@@ -31,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 3219468188470793342}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -3.92, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -139,35 +138,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec884e93204f33d45981365818a927a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: 2
-  moveLeft: 0
---- !u!61 &763579637451487024
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3219468188470793342}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.13635826, y: 1.6853194}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 11.43, y: 6.0978127}
-    newSize: {x: 8.4, y: 8.49}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 11.157284, y: 3.3706388}
-  m_EdgeRadius: 0
---- !u!61 &4979961349839504016
+  enemySpeed: 0.2
+  distance: 1
+  player: {fileID: 0}
+  firstPos: {x: 70, y: -17.7}
+  secondPos: {x: 125, y: -17.7}
+  animator: {fileID: 4519149127082042545}
+--- !u!61 &1652847188
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
