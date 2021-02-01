@@ -45,10 +45,10 @@ public class WalkingDragon : MonoBehaviour
 	private void Die()
 	{
 		//  Destroy(gameObject);
-		enemyIsDead = true;
 		
-		if (gameObject.tag == "WalkingEnemy")
+		if (gameObject.tag == "PogostickPlayer")
 		{
+			enemyIsDead = true;
 			Debug.Log(gameObject.tag);
 			
 			animator.SetBool("IsDead", true);		//speel de animatie af
