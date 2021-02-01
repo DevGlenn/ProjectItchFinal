@@ -221,5 +221,9 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
+    public void Dead()
+    {
+        isDead = true;
+    }
 
 }

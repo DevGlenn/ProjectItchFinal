@@ -18,6 +18,7 @@ public class WinScreen : MonoBehaviour
     {
         if (collision.gameObject.tag =="Player")
         {
+            Time.timeScale = 0;
             panel.gameObject.SetActive(true);
         }
     }
