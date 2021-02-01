@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4454047229008156248}
   - component: {fileID: 4454047229008156249}
   - component: {fileID: 4454047229008156255}
+  - component: {fileID: 4191410987493168904}
   - component: {fileID: 7765800726488896167}
   m_Layer: 0
   m_Name: GoodFlyingEnemy
@@ -103,6 +104,25 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4191410987493168904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4454047229008156252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2465855690576a42bef99c7d8ec345d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemySpeed: 0
+  distance: 0
+  player: {fileID: 0}
+  timer: 3
+  firstPos: {x: 0, y: 0}
+  secondPos: {x: 0, y: 0}
+  animator: {fileID: 0}
 --- !u!50 &7765800726488896167
 Rigidbody2D:
   serializedVersion: 4

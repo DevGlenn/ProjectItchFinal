@@ -5,38 +5,40 @@ using UnityEngine;
 public class FlyingDragon : MonoBehaviour
 {
 	[SerializeField] private float enemySpeed;
+	[SerializeField] private float distance;
 	public GameObject player;
-
-	public bool MoveRight;
+	private bool enemyIsDead = false;
+	[SerializeField] private float timer = 3f;
+	[SerializeField] private Vector2 firstPos; //start positie
+	[SerializeField] private Vector2 secondPos; //eind positie
+	private Vector2 currentPos; //de positie waar het object zich nu bevindt
 
 	public Animator animator;
+
+	private void Start()
+	{
+
+	}
 	void Update()
 	{
-		// Use this for initialization
-		if (MoveRight)
+		if (timer <= 0f)
 		{
-			transform.Translate(2 * Time.deltaTime * enemySpeed, 0, 0);
-			transform.localScale = new Vector2(-2, 2);
+			Destroy(gameObject);
 		}
-		else
+		if (enemyIsDead == true)
 		{
-			transform.Translate(-2 * Time.deltaTime * enemySpeed, 0, 0);
-			transform.localScale = new Vector2(2, 2);
+			timer -= Time.deltaTime;
 		}
-	}
-	public void OnTriggerEnter2D(Collider2D other)
-	{
-		if (other.gameObject.CompareTag("Blockades"))
+		currentPos = transform.position;
+		if (!enemyIsDead)
 		{
+			transform.position = Vector3.Lerp(firstPos, secondPos, Mathf.PingPong(Time.time * enemySpeed, 1.0f));
+			currentPos = transform.position;
+		}
 
-			if (MoveRight)
-			{
-				MoveRight = false;
-			}
-			else
-			{
-				MoveRight = true;
-			}
+		if (!enemyIsDead)
+		{
+			transform.position = Vector3.Lerp(firstPos, secondPos, Mathf.PingPong(Time.time * enemySpeed, 1.0f));
 		}
 	}
 
@@ -44,18 +46,18 @@ public class FlyingDragon : MonoBehaviour
 	{
 		Die();
 	}
-	private void Die()
+	public void Die()
 	{
+
 		//  Destroy(gameObject);
 
 
-		if (gameObject.tag == "FlyingEnemy")
-		{
-			Debug.Log(gameObject.tag);
-			
-			animator.SetBool("IsDead", true);                   //speel de animatie af
+		enemyIsDead = true;
+		Debug.Log(gameObject.tag);
 
-		}
+		animator.SetBool("IsDead", true);       //speel de animatie af
+
+
 		Debug.Log(gameObject.tag);
 	}
 
