@@ -15,7 +15,11 @@ EditorUserSettings:
       value: 22424703114646680e0b0227036c73150012147b623d28393930
       flags: 0
     RecentlyUsedScenePath-3:
+<<<<<<< HEAD
       value: 22424703114646680e0b0227036c731500121478623d28393930
+=======
+      value: 22424703114646680e0b0227036c6b19021b1d192f3a23352367083debf42d
+>>>>>>> b4835e4146961747e07da09ea9b04d2a5a44afa0
       flags: 0
     lightmappingDeviceAndPlatform:
       value: 53
