@@ -199,22 +199,7 @@ public class PlayerMovement : MonoBehaviour
         jumpPickupTimer = 10f;
     }
      
-    /*private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.tag == ("Ground"))
-        {
-            isGrounded = true;
-            rb.velocity = Vector3.zero;
-        }
-    }*/
-
-    /*private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == ("Ground"))
-        {
-            isGrounded = false;
-        }
-    }*/
+    
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

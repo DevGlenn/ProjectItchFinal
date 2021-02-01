@@ -13,6 +13,7 @@ TagManager:
   - GM
   - FlyingEnemy
   - WalkingEnemy
+  - Blockades
   layers:
   - Default
   - TransparentFX

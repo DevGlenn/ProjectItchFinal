@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class ButtonMan : MonoBehaviour
 {
-    [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject settingsMenu;
     [SerializeField] private GameObject titleScreen;
     [SerializeField] private GameObject mainMenu;
@@ -13,38 +12,7 @@ public class ButtonMan : MonoBehaviour
 
     private void Update()
     {
-        if (SceneManager.sceneCount == 1)
-        {
-            if (Input.GetKey(KeyCode.Escape))
-            {
-                Pause();
-            }
-        }
-        if (SceneManager.sceneCount == 2)
-        {
-            if (Input.GetKey(KeyCode.Escape))
-            {
-                Pause();
-            }
-        }
-        if (SceneManager.sceneCount == 3)
-        {
-            if (Input.GetKey(KeyCode.Escape))
-            {
-                Pause();
-            }
-        }
-    }
-
-    private void Pause()
-    {
-        pauseMenu.SetActive(true); //pauze menu is te zien
-        Time.timeScale = 0; //freeze de game
-    }
-    public void Resume()
-    {
-        pauseMenu.SetActive(false); //het pauze menu is niet meer zichtbaar
-        Time.timeScale = 1; //continue de game
+        
     }
 
     public void GoToMainMenu()
@@ -57,6 +25,7 @@ public class ButtonMan : MonoBehaviour
     public void StartLevel1()
     {
         SceneManager.LoadScene("Level1");
+        Time.timeScale = 1;
     }
     public void RestartLevel()
     {
